@@ -1,0 +1,10 @@
+<h1>Authors</h1>
+
+<div class="card-group">
+  {{#each authors as |author|}}
+    {{!-- {{> authorCard }} --}}
+    {{> authorCard author}}
+  {{else}}
+    <p>Todavía no hay ningún autor</p>
+  {{/each}}
+</div>

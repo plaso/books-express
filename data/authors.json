@@ -1,0 +1,16 @@
+[
+  {
+    "firstName": "JK",
+    "lastName": "Rowling",
+    "birthDate": "1967",
+    "biography": "La de harry potter",
+    "country": "Los que nos ganaron al futbol"
+  },
+  {
+    "firstName": "Patrick",
+    "lastName": "Rothfuss",
+    "birthDate": "1960",
+    "biography": "saca el puto libro",
+    "country": "npi"
+  }
+]

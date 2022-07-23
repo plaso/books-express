@@ -2,8 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const logger = require('morgan')
-
-const routes = require('./config/routes.config')
+const hbs = require('hbs')
 
 require('./config/db.config')
 
@@ -16,6 +15,9 @@ app.use(logger('dev'))
 app.set('views', __dirname + '/views')
 app.set('view engine', 'hbs')
 
+hbs.registerPartials(__dirname + '/views/partials')
+
+const routes = require('./config/routes.config')
 app.use(routes)
 
 app.use((err, req, res, next) => {

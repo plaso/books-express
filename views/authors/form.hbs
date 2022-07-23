@@ -1,0 +1,36 @@
+{{#if isEdit}}
+  <h1 class="mt-2">Edit author</h1>
+  {{!-- <form action="/authors/{{author.id}}" method="POST"> --}}
+{{else}}
+  <h1 class="mt-2">New author</h1>
+  {{!-- <form action="/authors" method="POST"> --}}
+{{/if}}
+
+<form action="/authors{{#if isEdit}}/{{author.id}}{{/if}}" method="POST">
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First name</label>
+    <input value="{{author.firstName}}" type="text" class="form-control" id="firstName" name="firstName" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last name</label>
+    <input value="{{author.lastName}}" type="text" class="form-control" id="lastName" name="lastName" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="birthDate" class="form-label">Birth date</label>
+    <input value="{{author.birthDate}}" type="text" class="form-control" id="birthDate" name="birthDate" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="country" class="form-label">Country</label>
+    <input value="{{author.country}}" type="text" class="form-control" id="country" name="country">
+  </div>
+
+  <div class="mb-3">
+    <label for="biography" class="form-label">Biography</label>
+    <textarea class="form-control" id="biography" rows="3" name="biography">{{author.biography}}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
