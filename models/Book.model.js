@@ -8,8 +8,9 @@ const bookSchema = new mongoose.Schema({
     required: [true, 'Title is required']
   },
   author: {
-    type: String,
-    default: 'Anonymous'
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Author',
+    required: [true, 'An author is required']
   },
   description: {
     type: String,

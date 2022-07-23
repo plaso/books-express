@@ -8,6 +8,9 @@ router.get('/', miscController.home)
 
 // BOOKS
 
+router.get('/books/new', booksController.create)
+router.post('/books', booksController.doCreate)
+
 router.get('/books', booksController.list)
 router.get('/books/:id', booksController.bookDetail)
 

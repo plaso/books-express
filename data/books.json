@@ -1,16 +1,14 @@
 [
   {
-    "title": "The name of the wind",
-    "author": "Patrick Rottfuss",
-    "description": "Lorem fistrum por la gloria de mi madre al ataquerl tiene musho peligro llevame al sircoo me cago en tus muelas tiene musho peligro. Apetecan jarl a gramenawer condemor caballo blanco caballo negroorl jarl condemor.",
-    "genre": "Drama",
-    "year": "2000"
-  },
-  {
     "title": "Harry Potter and the philosophal stone",
-    "author": "JK Rowling",
     "description": "Lorem fistrum por la gloria de mi madre al ataquerl tiene musho peligro llevame al sircoo me cago en tus muelas tiene musho peligro. Apetecan jarl a gramenawer condemor caballo blanco caballo negroorl jarl condemor.",
     "genre": "Horror",
     "year": "1998"
+  },
+  {
+    "title": "The name of the wind",
+    "description": "Lorem fistrum por la gloria de mi madre al ataquerl tiene musho peligro llevame al sircoo me cago en tus muelas tiene musho peligro. Apetecan jarl a gramenawer condemor caballo blanco caballo negroorl jarl condemor.",
+    "genre": "Drama",
+    "year": "2000"
   }
 ]

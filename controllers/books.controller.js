@@ -1,4 +1,5 @@
 const Book = require('../models/Book.model')
+const Author = require('../models/Author.model')
 const createError = require('http-errors')
 
 module.exports.list = (req, res, next) => {
@@ -11,6 +12,7 @@ module.exports.list = (req, res, next) => {
   }
 
   Book.find(options)
+    .populate('author')
     .then(books => {
       console.log(books)
       res.render('books', { books, title: 'hola' })
@@ -29,4 +31,19 @@ module.exports.bookDetail = (req, res, next) => {
       next(createError(404, 'Book not found'))
       // next(err) Esto es lo que hariamos por defecto
     })
+}
+
+module.exports.create = (req, res, next) => {
+  // pinta la vista de crear un libro
+  Author.find()
+    .then(authors => {
+      res.render('books/form', { authors })
+    })
+
+}
+
+module.exports.doCreate = (req, res, next) => {
+  console.log(req.body);
+
+  res.send('creado')
 }
