@@ -1,26 +1,38 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const authorSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: [true, 'Add the name of the author']
+const authorSchema = new mongoose.Schema(
+  {
+    firstName: {
+      type: String,
+      required: [true, "Add the name of the author"],
+    },
+    lastName: {
+      type: String,
+      required: [true, "Add the last name of the author"],
+    },
+    birthDate: {
+      type: String,
+      required: [true, "Add the birth date of the author"],
+    },
+    biography: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
   },
-  lastName: {
-    type: String,
-    required: [true, 'Add the last name of the author']
-  },
-  birthDate: {
-    type: String,
-    required: [true, 'Add the birth date of the author']
-  },
-  biography: {
-    type: String
-  },
-  country: {
-    type: String
-  },
-})
+  {
+    toObject: { virtuals: true },
+  }
+);
 
-const Author = mongoose.model('Author', authorSchema)
+authorSchema.virtual("books", {
+  ref: "Book",
+  localField: "_id",
+  foreignField: "author",
+  justOne: false,
+});
 
-module.exports = Author
+const Author = mongoose.model("Author", authorSchema);
+
+module.exports = Author;

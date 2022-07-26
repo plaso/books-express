@@ -1,3 +1,7 @@
 <h1>{{author.firstName}}</h1>
 
 <p>{{author.biography}}</p>
+
+{{#each author.books as |book|}}
+  {{book.title}}
+{{/each}}

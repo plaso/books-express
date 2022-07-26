@@ -1,6 +1,7 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/books'
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/books";
 
 mongoose
   .connect(MONGODB_URI, {
@@ -8,17 +9,17 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((x) => {
-    console.log(`Connected to db at ${MONGODB_URI}`)
+    console.log(`Connected to db at ${MONGODB_URI}`);
   })
   .catch((err) => {
-    console.error(`Error connecting to ${MONGODB_URI}`, err)
+    console.error(`Error connecting to ${MONGODB_URI}`, err);
 
-    process.exit(0)
-  })
+    process.exit(0);
+  });
 
 process.on("SIGINT", function () {
   mongoose.connection.close(function () {
-    console.log("Mongoose disconnected on app termination")
-    process.exit(0)
-  })
-})
+    console.log("Mongoose disconnected on app termination");
+    process.exit(0);
+  });
+});
