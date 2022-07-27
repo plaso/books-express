@@ -14,7 +14,6 @@ module.exports.list = (req, res, next) => {
   Book.find(options)
     .populate("author")
     .then((books) => {
-      console.log(books);
       res.render("books", { books, title: "hola" });
     });
 };
