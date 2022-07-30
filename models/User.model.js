@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   },
   email: {
     type: String,
-    required: [true, "email is required"],
+    required: [true, "Email is required"],
     unique: true,
     match: [EMAIL_PATTERN, "Email pattern does not match"],
   },
@@ -45,6 +45,11 @@ userSchema.pre("save", function (next) {
     next();
   }
 });
+
+userSchema.methods.checkPassword = function (password) {
+  const user = this;
+  return bcrypt.compare(password, user.password);
+};
 
 const User = mongoose.model("User", userSchema);
 
