@@ -10,6 +10,9 @@ router.get("/", miscController.home);
 
 // AUTH
 router.get("/register", authController.register);
+router.get("/login", authController.login);
+router.get("/logout", authController.logout);
+router.post("/login", authController.doLogin);
 router.post("/register", authController.doRegister);
 
 // USERS

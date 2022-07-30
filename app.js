@@ -5,12 +5,15 @@ const logger = require("morgan");
 const hbs = require("hbs");
 
 require("./config/db.config");
+//const sessionConfig = require("./config/session.config");
 
 const app = express();
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(logger("dev"));
+
+//app.use(sessionConfig);
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
