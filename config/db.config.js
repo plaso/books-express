@@ -24,4 +24,4 @@ process.on("SIGINT", function () {
   });
 });
 
-//module.exports.DB = MONGODB_URI;
+module.exports.DB = MONGODB_URI;

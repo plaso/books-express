@@ -34,43 +34,43 @@ module.exports.doRegister = (req, res, next) => {
     });
 };
 
-// module.exports.logout = (req, res, next) => {
-//   req.session.destroy();
-//   res.redirect("/login");
-// };
+module.exports.logout = (req, res, next) => {
+  req.session.destroy();
+  res.redirect("/login");
+};
 
-// module.exports.login = (req, res, next) => {
-//   if (req.session.currentUser) {
-//     res.redirect("/profile");
-//   } else {
-//     res.render("auth/login");
-//   }
-// };
+module.exports.login = (req, res, next) => {
+  if (req.session.currentUser) {
+    res.redirect("/profile");
+  } else {
+    res.render("auth/login");
+  }
+};
 
-// module.exports.doLogin = (req, res, next) => {
-//   console.log("SESSION =====> ", req.session);
+module.exports.doLogin = (req, res, next) => {
+  console.log("SESSION =====> ", req.session);
 
-//   // req.body destructuring
-//   const { email, password } = req.body;
-//   // and email and password validation stay the same
+  // req.body destructuring
+  const { email, password } = req.body;
+  // and email and password validation stay the same
 
-//   User.findOne({ email })
-//     .then((user) => {
-//       if (!user) {
-//         res.render("auth/login", {
-//           errorMessage: "Email is not registered. Try with other email.",
-//         });
-//         return;
-//       } else if (user) {
-//         user.checkPassword(password).then((match) => {
-//           if (match) {
-//             req.session.currentUser = user;
-//             res.redirect("/profile");
-//           } else {
-//             res.render("auth/login", { errorMessage: "Incorrect password." });
-//           }
-//         });
-//       }
-//     })
-//     .catch((error) => next(error));
-// };
+  User.findOne({ email })
+    .then((user) => {
+      if (!user) {
+        res.render("auth/login", {
+          errorMessage: "Email is not registered. Try with other email.",
+        });
+        return;
+      } else if (user) {
+        user.checkPassword(password).then((match) => {
+          if (match) {
+            req.session.currentUser = user;
+            res.redirect("/profile");
+          } else {
+            res.render("auth/login", { errorMessage: "Incorrect password." });
+          }
+        });
+      }
+    })
+    .catch((error) => next(error));
+};
