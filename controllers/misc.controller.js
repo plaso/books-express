@@ -1,4 +1,5 @@
+const bcrypt = require("bcrypt");
 
 module.exports.home = (req, res, next) => {
-  res.send('home')
-}
+  res.redirect("/books");
+};
