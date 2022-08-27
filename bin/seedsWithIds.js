@@ -1,3 +1,4 @@
+require('dotenv').config()
 const mongoose = require("mongoose");
 const faker = require("community-faker");
 const Book = require("../models/Book.model");
