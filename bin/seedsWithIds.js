@@ -1,3 +1,4 @@
+console.log('hello world')
 require('dotenv').config()
 const mongoose = require("mongoose");
 const faker = require("community-faker");
@@ -18,7 +19,7 @@ mongoose.connection.once("open", () => {
         const authorData = {
           firstName: faker.name.firstName(),
           lastName: faker.name.lastName(),
-          birthDate: "1994",
+          birthDate: "2000",
           biography: faker.lorem.paragraph(),
           country: faker.address.country(),
         };
