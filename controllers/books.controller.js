@@ -1,6 +1,7 @@
 const Book = require("../models/Book.model");
 const Author = require("../models/Author.model");
 const createError = require("http-errors");
+const Like = require("../models/Like.model");
 
 module.exports.list = (req, res, next) => {
   const { title } = req.query;
@@ -14,7 +15,9 @@ module.exports.list = (req, res, next) => {
   Book.find(options)
     .populate("author")
     .then((books) => {
-      res.render("books", { books, title: "hola" });
+      Like.find({ user: req.session.currentUser._id }).then((likes) => {
+        res.render("books", { books, likes: likes, title: "hola" });
+      });
     });
 };
 

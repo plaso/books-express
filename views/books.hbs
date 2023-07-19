@@ -9,5 +9,31 @@
     <img src="{{book.image}}" alt="{{book.title}}" width="300">
 
     <a href="/books/{{book._id}}">Ver mas detalles</a>
+
+    <button data-user="{{../currentUser._id}}" data-name="{{book.title}}" data-id="{{book._id}}" type="submit" class="btn btn-warning  {{#userLikedBook likes=../likes book=book}}btn-danger{{/userLikedBook}} like-button">
+      <i class="fa fa-heart"></i>
+
+    </button>
   </div>
 {{/each}}
+
+<script>
+  const likeButtons = document.querySelectorAll('.like-button')
+
+  likeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      console.log(`http://localhost:3000/likes/${btn.dataset.user}/${btn.dataset.id}`)
+      axios.post(`http://localhost:3000/likes/${btn.dataset.user}/${btn.dataset.id}`)
+        .then(response => {
+          if (response.data === 'DELETED') {
+            btn.classList.remove('btn-danger')
+            btn.classList.add('btn-warning')
+          } else {
+            btn.classList.remove('btn-warning')
+            btn.classList.add('btn-danger')
+          }
+        })
+        .catch(err => console.log(err))
+    })
+  })
+</script>

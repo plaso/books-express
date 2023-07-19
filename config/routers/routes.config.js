@@ -3,6 +3,7 @@ const miscController = require("../../controllers/misc.controller");
 const authController = require("../../controllers/auth.controller");
 const usersController = require("../../controllers/users.controller");
 const authorsController = require("../../controllers/authors.controller");
+const likesController = require("../../controllers/likes.controller");
 const authMiddlewares = require("../../middlewares/authMiddleware");
 // MISC
 router.get("/", miscController.home);
@@ -36,10 +37,12 @@ router.post(
 
 router.get("/authors", authorsController.list);
 router.get("/authors/:id", authorsController.authorDetail);
-
 router.get("/authors/:id/edit", authorsController.edit);
 router.post("/authors/:id", authorsController.doEdit);
-
 router.post("/authors/:id/delete", authorsController.delete);
+
+//LIKES
+
+router.post("/likes/:userId/:bookId", likesController.create);
 
 module.exports = router;

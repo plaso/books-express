@@ -6,6 +6,8 @@ const hbs = require("hbs");
 const sessionConfig = require("./config/session.config");
 
 require("./config/db.config");
+require("./config/hbs.config");
+hbs.registerPartials(__dirname + "/views/partials");
 
 const app = express();
 
@@ -17,8 +19,6 @@ app.use(sessionConfig);
 
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");
-
-hbs.registerPartials(__dirname + "/views/partials");
 
 app.use((req, res, next) => {
   res.locals.currentUser = req.session.currentUser;
